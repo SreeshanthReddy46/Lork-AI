@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-mono), monospace;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-blink {
+  animation: blink 0.9s step-end infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 25s linear infinite;
+}
+
+/* Custom terminal scrollbar formatting */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 2px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.animate-slideLeft {
+  animation: slideLeft 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom 3-dot bounce animation with scaling & opacity */
+@keyframes dotBounce {
+  0%, 100% {
+    transform: translateY(0) scale(0.85);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.15);
+    opacity: 1;
+  }
+}
+
+.animate-dot-bounce-1 {
+  animation: dotBounce 0.6s infinite ease-in-out;
+  animation-delay: -0.32s;
+}
+
+.animate-dot-bounce-2 {
+  animation: dotBounce 0.6s infinite ease-in-out;
+  animation-delay: -0.16s;
+}
+
+.animate-dot-bounce-3 {
+  animation: dotBounce 0.6s infinite ease-in-out;
+}
+
+/* Custom question slide-up animation */
+@keyframes slideUpQuestion {
+  from {
+    transform: translateY(35px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideUpQuestion {
+  animation: slideUpQuestion 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+
